@@ -2,7 +2,10 @@ const { Schema, model } = require('mongoose');
 
 const imageSchema = new Schema({
     src: String,
-    alt: String,
+    alt: {
+        type: String,
+        default: 'No description added yet.',
+    },
     nsfw: {
         type: Boolean,
         default: false,
