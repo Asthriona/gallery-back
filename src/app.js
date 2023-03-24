@@ -41,8 +41,8 @@ app.get('/images', async (req, res) => {
 });
 
 // Get a single image from the database
-app.get('/images/:id', (req, res) => {
-    const image = IMG.findById(req.params.id);
+app.get('/images/:id', async (req, res) => {
+    const image = await IMG.findById(req.params.id);
     res.send(image);
 });
 
