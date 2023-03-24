@@ -10,14 +10,16 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 // That fucking cors bullshit again. God I hate it when not dealing with damn credentials.  Dude, I just request focking images. piss off. 
+// if you come to use this, well... Sorry ahah :) also change this. I'll make a better solution later
 app.use(cors({
-    origin: ['http://localhost:3000', "https://ai.asthriona.com", "http://localhost:8080"],
+    origin: ["https://ai.asthriona.com", "http://localhost:8080"],
 }));
 
 // Connect to the database
 mongoose.connect(process.env.DATABASE_LINK);
 
-
+// If you are using this: 
+// Don't pay too much Attention to AWS being un-happy. I'll fix that some day maybe?
 AWS.config.update({
     accessKeyId: process.env.AWS_ACCESS_KEY,
     secretAccessKey: process.env.AWS_SECRET_KEY,
@@ -77,6 +79,6 @@ app.put('/images/:id', async (req, res) => {
 });
 
 // Start server
-app.listen(3000, () => {
+app.listen(process.env.APP_PORT, () => {
     console.log('Server started on port 3000');
 });
