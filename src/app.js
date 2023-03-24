@@ -37,7 +37,7 @@ app.get('/', (req, res) => {
 // Get all images from the database
 app.get('/images', async (req, res) => {
     const images = await IMG.find({});
-    res.json(images);
+    res.json(images.reverse());
 });
 
 // Get a single image from the database
