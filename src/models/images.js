@@ -10,6 +10,10 @@ const imageSchema = new Schema({
         type: Boolean,
         default: false,
     },
+    category: {
+        type: String,
+        default: 'null',
+    }
 });
 
 module.exports = model('Image', imageSchema);
